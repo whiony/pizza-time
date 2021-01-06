@@ -44,6 +44,11 @@
   color: #1f1f1f;
 }
 
+.header-page__hamburger {
+  display: none;
+  margin-right: -15px;
+}
+
 .header-page__link::before {
   content: "";
   position: absolute;
@@ -78,6 +83,19 @@
 
 @media (max-width: 992px) {
   .header-page__nav {
+    display: none;
+  }
+  .header-page__hamburger {
+    display: block;
+  }
+
+  .header-page {
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-page__phone {
     display: none;
   }
 }
