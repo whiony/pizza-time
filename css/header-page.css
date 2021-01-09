@@ -68,6 +68,7 @@
 
 .header-page__text {
   position: relative;
+  transition: color 0.2s;
 }
 
 @media (max-width: 1200px) {
