@@ -1,18 +1,20 @@
 /* btn start  */
 .btn {
+  background: #ff5441;
+  color: #fff;
   display: inline-block;
   padding: 18px 20px;
   width: 240px;
   max-width: 100%;
-  color: #ffffff;
-  text-align: center;
-  font: normal normal 900 18px/24px "Montserrat";
   border-radius: 28px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 18px;
   border: 0;
-  background: #ff5441;
-  box-shadow: 0px 0px 38px 0px rgba(212, 66, 50, 0.8);
   cursor: pointer;
-  letter-spacing: 0.01em;
+  text-align: center;
+  letter-spacing: 0.02em;
+  box-shadow: 0px 0px 38px 0px rgba(212, 66, 50, 0.8);
   transition: color 0.2s, background 0.2s, opacity 0.2s;
   outline: none;
 }
@@ -118,16 +120,6 @@
   padding: 110px 0;
 }
 
-@media (max-width: 576px) {
-  .section {
-    padding: 90px 0;
-  }
-}
-
-.section__header {
-  margin-bottom: 90px;
-}
-
 .section__title {
   margin: 0 auto 40px;
   text-align: center;
@@ -138,9 +130,19 @@
   color: #ffa650;
 }
 
+.section__header {
+  margin-bottom: 90px;
+}
+
 @media (max-width: 576px) {
+  .section {
+    padding: 90px 0;
+  }
   .section__title {
     font-size: 36px;
+  }
+  .section__header {
+    margin-bottom: 70px;
   }
 }
 /* section end  */
@@ -162,12 +164,13 @@
 }
 
 .catalog-nav__btn {
-  padding: 14px;
+  padding: 0;
   border: 0;
   background-color: transparent;
   cursor: pointer;
   display: inline-block;
   text-align: center;
+  padding: 14px;
   min-width: 150px;
   font: normal normal 900 18px "Montserrat";
   color: #e6e6e6;
@@ -194,7 +197,7 @@
 @media (max-width: 767px) {
   .catalog-nav {
     width: 500px;
-    min-width: 100%;
+    max-width: 100%;
     margin: 0 auto;
   }
   .catalog-nav__wrapper {
@@ -389,3 +392,57 @@
   }
 }
 /* product  end */
+
+/* socials start */
+.socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.socials__item {
+  margin-right: 7px;
+}
+
+.socials__link {
+  display: inline-block;
+}
+
+.socials__icon {
+  fill: #ffa650;
+  width: 35px;
+  height: 35px;
+  transition: fill 0.2s, opacity 0.2s;
+}
+
+.socials__icon--vk:hover {
+  fill: #5078a5;
+}
+
+.socials__icon--fb:hover {
+  fill: #3e58a1;
+}
+
+.socials__icon--inst:hover {
+  fill: #e6369c;
+}
+
+.socials__icon:active {
+  opacity: 0.7;
+}
+
+.socials__logo {
+  fill: #fff;
+}
+
+@media (max-width: 767px) {
+  .socials__item {
+    margin-right: 15px;
+  }
+  .socials__icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+/* socials end */

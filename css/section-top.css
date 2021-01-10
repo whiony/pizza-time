@@ -1,13 +1,13 @@
 .section-top {
+  height: 100vh;
+  min-height: 600px;
+  background: #0e1419 url(../img/section-top/bg.jpg) no-repeat center;
+  background-size: cover;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
-  min-height: 600px;
-  background: #0e1419 url("../img/section-top/bg.jpg") no-repeat center;
-  background-size: cover;
-  color: #ffffff;
   position: relative;
   padding: 170px 0 100px;
 }
@@ -29,13 +29,13 @@
 
 .section-top__info {
   margin: 0;
-  font: normal normal 900 24px/24px "Montserrat";
+  font: normal normal 900 24px "Montserrat";
   color: #fcff00;
 }
 
 .section-top__title {
   margin: 0 0 35px;
-  font: normal normal 900 55px/72px "Montserrat";
+  font: normal normal 900 55px "Montserrat";
 }
 
 @media (max-width: 992px) {
