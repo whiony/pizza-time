@@ -1,10 +1,10 @@
 .header-page {
-  padding: 9px 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 5;
+  padding: 9px 0;
   background: rgba(11, 20, 25, 0.9);
   overflow: hidden;
 }
@@ -38,15 +38,7 @@
   font: normal normal 900 18px "Montserrat";
   text-decoration: none;
   display: block;
-}
-
-.header-page__link:hover {
-  color: #1f1f1f;
-}
-
-.header-page__hamburger {
-  display: none;
-  margin-right: -15px;
+  transition: padding 0.4s;
 }
 
 .header-page__link::before {
@@ -69,6 +61,20 @@
 .header-page__text {
   position: relative;
   transition: color 0.2s;
+}
+
+.header-page__link:hover {
+  color: #1f1f1f;
+}
+
+.header-page__hamburger {
+  display: none;
+  margin-right: -15px;
+}
+
+.header-page.is-active .header-page__link {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 @media (max-width: 1200px) {
