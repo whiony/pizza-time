@@ -28,3 +28,7 @@ img {
 .no-scroll {
   overflow: hidden;
 }
+
+button {
+  outline: none;
+}
