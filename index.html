@@ -106,25 +106,47 @@
           <nav class="catalog-nav">
             <ul class="catalog-nav__wrapper">
               <li class="catalog-nav__item">
-                <button class="catalog-nav__btn is-active" type="button">
+                <button
+                  class="catalog-nav__btn is-active"
+                  type="button"
+                  data-filter="all"
+                >
                   все
                 </button>
               </li>
               <li class="catalog-nav__item">
-                <button class="catalog-nav__btn" type="button">грибные</button>
+                <button
+                  class="catalog-nav__btn"
+                  type="button"
+                  data-filter="mushrooms"
+                >
+                  грибные
+                </button>
               </li>
               <li class="catalog-nav__item">
-                <button class="catalog-nav__btn" type="button">мясные</button>
+                <button
+                  class="catalog-nav__btn"
+                  type="button"
+                  data-filter="meat"
+                >
+                  мясные
+                </button>
               </li>
               <li class="catalog-nav__item">
-                <button class="catalog-nav__btn" type="button">сырные</button>
+                <button
+                  class="catalog-nav__btn"
+                  type="button"
+                  data-filter="cheese"
+                >
+                  сырные
+                </button>
               </li>
             </ul>
           </nav>
         </header>
 
         <div class="catalog">
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="mushrooms">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/1.png"
@@ -162,7 +184,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="meat>
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/2.png"
@@ -200,7 +222,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="cheese>
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/3.png"
@@ -238,7 +260,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="cheese">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/4.png"
@@ -276,7 +298,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="cheese">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/5.png"
@@ -313,7 +335,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="meat">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/6.png"
@@ -351,7 +373,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="mushrooms">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/7.png"
@@ -389,7 +411,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="mushrooms">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/8.png"
@@ -424,7 +446,7 @@
               </footer>
             </div>
           </div>
-          <div class="catalog__item">
+          <div class="catalog__item"  data-category="mushrooms">
             <div class="product catalog__prod">
               <img
                 src="img/section-catalog/9.png"
@@ -815,5 +837,6 @@
     <script src="js/header.js"></script>
     <script src="js/popup.js"></script>
     <script src="js/scrollTo.js"></script>
+    <script src="js/catalog.js"></script>
   </body>
 </html>
