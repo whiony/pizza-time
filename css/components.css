@@ -353,6 +353,7 @@
   border-radius: 21px;
   overflow: hidden;
   box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .product__size {
@@ -364,12 +365,26 @@
   color: #e6e6e6;
   font: normal normal 900 16px "Montserrat";
   padding: 13px 33px;
+  border-radius: 21px;
+  position: relative;
+  z-index: 1;
 }
 
 .product__size.is-active {
   color: #a2a2a2;
+  /* box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 21px; */
+}
+
+.product__checker {
+  position: absolute;
+  width: 109px;
+  height: 44px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
   border-radius: 21px;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease-out;
 }
 
 .product__price {
