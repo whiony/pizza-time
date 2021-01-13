@@ -374,8 +374,6 @@ myLib.body.addEventListener('click', function(e) {
           });
   
       myMap.geoObjects.add(myPlacemark);
-  
-      myMap.behaviors.disable('scrollZoom');
     });
   };
 
