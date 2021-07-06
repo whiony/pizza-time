@@ -1,18 +1,18 @@
-// libs 
-;(function (){
+// libs
+(function () {
   var lazyLoadInstance = new LazyLoad({
-    elements_selector: '.lazy'
+    elements_selector: ".lazy",
   });
 })();
-// libs 
+// libs
 
-// myLib 
-;(function(){
+// myLib
+(function () {
   window.myLib = {};
 
-  window.myLib.body = document.querySelector('body');
+  window.myLib.body = document.querySelector("body");
 
-  window.myLib.closestAttr = function(item, attr) {
+  window.myLib.closestAttr = function (item, attr) {
     var node = item;
 
     while (node) {
@@ -27,7 +27,7 @@
     return null;
   };
 
-  window.myLib.closestItemByClass = function(item, className) {
+  window.myLib.closestItemByClass = function (item, className) {
     var node = item;
 
     while (node) {
@@ -41,154 +41,158 @@
     return null;
   };
 
-  window.myLib.toggleScroll = function() {
-    myLib.body.classList.toggle('no-scroll');
-  }
+  window.myLib.toggleScroll = function () {
+    myLib.body.classList.toggle("no-scroll");
+  };
 })();
 // myLib
 
-// header 
-;(function() {
-  if (window.matchMedia('(max-width: 992px)').matches) {
-    return
+// header
+(function () {
+  if (window.matchMedia("(max-width: 992px)").matches) {
+    return;
   }
 
-  var headerPage = document.querySelector('.header-page');
+  var headerPage = document.querySelector(".header-page");
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener("scroll", function () {
     if (window.pageYOffset > 0) {
-      headerPage.classList.add('is-active');
+      headerPage.classList.add("is-active");
     } else {
-      headerPage.classList.remove('is-active'); 
+      headerPage.classList.remove("is-active");
     }
   });
 })();
-// header 
+// header
 
 // popup
-;(function() {
-  var showPopup = function(target) {
-  target.classList.add('is-active');
-}
+(function () {
+  var showPopup = function (target) {
+    target.classList.add("is-active");
+  };
 
-var closePopup = function(target) {
-  target.classList.remove('is-active');
-}
+  var closePopup = function (target) {
+    target.classList.remove("is-active");
+  };
 
-myLib.body.addEventListener('click', function(e){
-  var target = e.target;
-  var popupClass = myLib.closestAttr(target, 'data-popup'); 
+  myLib.body.addEventListener("click", function (e) {
+    var target = e.target;
+    var popupClass = myLib.closestAttr(target, "data-popup");
 
-  if (popupClass === null) {
-    return;
-  }
+    if (popupClass === null) {
+      return;
+    }
 
-  e.preventDefault();
-  var popup = document.querySelector('.' + popupClass);
+    e.preventDefault();
+    var popup = document.querySelector("." + popupClass);
 
-  if (popup) {
-    showPopup(popup);
-    myLib.toggleScroll();
-  }
-  
-  console.log(popupClass);
-})
+    if (popup) {
+      showPopup(popup);
+      myLib.toggleScroll();
+    }
 
-myLib.body.addEventListener('click', function(e){
-  var target = e.target;
+    console.log(popupClass);
+  });
 
-  if (target.classList.contains('popup-close') || 
-      target.classList.contains('popup__inner')) {
-       var popup = myLib.closestItemByClass(target, 'popup');
+  myLib.body.addEventListener("click", function (e) {
+    var target = e.target;
 
-       closePopup(popup);
-       myLib.toggleScroll();
-      }
-})
+    if (
+      target.classList.contains("popup-close") ||
+      target.classList.contains("popup__inner")
+    ) {
+      var popup = myLib.closestItemByClass(target, "popup");
 
-myLib.body.addEventListener('keydown', function(e){
-  if (e.key !== "Escape") {
-    return;
-  }
-  var popup = document.querySelector('.popup.is-active');
-  if (popup) {
-    closePopup(popup);
-    myLib.toggleScroll();
-  }
-})
+      closePopup(popup);
+      myLib.toggleScroll();
+    }
+  });
+
+  myLib.body.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") {
+      return;
+    }
+    var popup = document.querySelector(".popup.is-active");
+    if (popup) {
+      closePopup(popup);
+      myLib.toggleScroll();
+    }
+  });
 })();
 // popup
 
-// scrollTo 
-;(function(){
-  var scroll = function(target) {
-  var targetTop = target.getBoundingClientRect().top;
-  var scrollTop = window.pageYOffset;
-  var targerOffsetTop = targetTop + scrollTop;
-  var headerOffset = document.querySelector('.header-page').clientHeight;
+// scrollTo
+(function () {
+  var scroll = function (target) {
+    var targetTop = target.getBoundingClientRect().top;
+    var scrollTop = window.pageYOffset;
+    var targerOffsetTop = targetTop + scrollTop;
+    var headerOffset = document.querySelector(".header-page").clientHeight;
 
-  window.scrollTo(0, targerOffsetTop - headerOffset + 10);
-}
+    window.scrollTo(0, targerOffsetTop - headerOffset + 10);
+  };
 
-myLib.body.addEventListener('click', function(e) {
-  var target = e.target;
-  var scrollToItemClass = myLib.closestAttr(target, 'data-scroll-to');
+  myLib.body.addEventListener("click", function (e) {
+    var target = e.target;
+    var scrollToItemClass = myLib.closestAttr(target, "data-scroll-to");
 
-  if (scrollToItemClass === null) {
-    return;
-  }
+    if (scrollToItemClass === null) {
+      return;
+    }
 
-  e.preventDefault();
-  var scrollToItem = document.querySelector('.' + scrollToItemClass);
+    e.preventDefault();
+    var scrollToItem = document.querySelector("." + scrollToItemClass);
 
-  if (scrollToItem) {
-    scroll(scrollToItem);
-  }
-});
+    if (scrollToItem) {
+      scroll(scrollToItem);
+    }
+  });
 })();
-// scrollTo 
+// scrollTo
 
 // catalog
-;(function() {
-  var catalogSection = document.querySelector('.section-catalog');
+(function () {
+  var catalogSection = document.querySelector(".section-catalog");
 
   if (catalogSection === null) {
     return;
   }
 
-  var removeChildren = function(item) {
+  var removeChildren = function (item) {
     while (item.firstChild) {
       item.removeChild(item.firstChild);
     }
   };
 
-  var updateChildren = function(item, children) {
+  var updateChildren = function (item, children) {
     removeChildren(item);
     for (var i = 0; i < children.length; i++) {
       item.appendChild(children[i]);
     }
   };
 
-  var catalog = catalogSection.querySelector('.catalog');
-  var catalogNav = catalogSection.querySelector('.catalog-nav');
-  var catalogItems = catalogSection.querySelectorAll('.catalog__item');
+  var catalog = catalogSection.querySelector(".catalog");
+  var catalogNav = catalogSection.querySelector(".catalog-nav");
+  var catalogItems = catalogSection.querySelectorAll(".catalog__item");
 
-  catalogNav.addEventListener('click', function(e) {
+  catalogNav.addEventListener("click", function (e) {
     var target = e.target;
-    var item = myLib.closestItemByClass(target, "catalog-nav__btn"); 
+    var item = myLib.closestItemByClass(target, "catalog-nav__btn");
 
-    if (item === null || item.classList.contains('is-active')) {
+    if (item === null || item.classList.contains("is-active")) {
       return;
     }
 
     e.preventDefault();
-    var filterValue = item.getAttribute('data-filter');
-    var previousBtnActive = catalogNav.querySelector('.catalog-nav__btn.is-active');
-    
-    previousBtnActive.classList.remove('is-active');
-    item.classList.add('is-active');
+    var filterValue = item.getAttribute("data-filter");
+    var previousBtnActive = catalogNav.querySelector(
+      ".catalog-nav__btn.is-active"
+    );
 
-    if (filterValue === 'all') {
+    previousBtnActive.classList.remove("is-active");
+    item.classList.add("is-active");
+
+    if (filterValue === "all") {
       updateChildren(catalog, catalogItems);
       return;
     }
@@ -196,7 +200,7 @@ myLib.body.addEventListener('click', function(e) {
     var filteredItems = [];
     for (var i = 0; i < catalogItems.length; i++) {
       var current = catalogItems[i];
-      if (current.getAttribute('data-category') === filterValue) {
+      if (current.getAttribute("data-category") === filterValue) {
         filteredItems.push(current);
       }
     }
@@ -207,53 +211,66 @@ myLib.body.addEventListener('click', function(e) {
 // catalog
 
 // product
-;(function(){
+(function () {
   var catalog = document.querySelector(".catalog");
 
   if (catalog === null) {
     return;
   }
 
-  var updateProductPrice = function(product, price) {
-    var productPrice = product.querySelector('.product__price-value');
+  var updateProductPrice = function (product, price) {
+    var productPrice = product.querySelector(".product__price-value");
     productPrice.textContent = price;
   };
 
-  var changeProductSize = function(target) {
-    var product = myLib.closestItemByClass(target, 'product');
-    var previousBtnActive = product.querySelector('.product__size.is-active');
-    var newPrice = target.getAttribute('data-product-size-price');
+  var changeProductSize = function (target) {
+    var product = myLib.closestItemByClass(target, "product");
+    var previousBtnActive = product.querySelector(".product__size.is-active");
+    var newPrice = target.getAttribute("data-product-size-price");
 
-    previousBtnActive.classList.remove('is-active');
-    target.classList.add('is-active');
+    previousBtnActive.classList.remove("is-active");
+    target.classList.add("is-active");
     updateProductPrice(product, newPrice);
   };
 
-  var changeProductOrderInfo = function(target) {
-    var product = myLib.closestItemByClass(target, 'product');
-    var order = document.querySelector('.popup-order');
+  var changeProductOrderInfo = function (target) {
+    var product = myLib.closestItemByClass(target, "product");
+    var order = document.querySelector(".popup-order");
 
-    var productTitle = product.querySelector('.product__title').textContent;
-    var productSize = product.querySelector('.product__size.is-active').textContent;
-    var productPrice = product.querySelector('.product__price-value').textContent;
-    var productImgSrc = product.querySelector('.product__img').getAttribute('src');
+    var productTitle = product.querySelector(".product__title").textContent;
+    var productSize = product.querySelector(
+      ".product__size.is-active"
+    ).textContent;
+    var productPrice = product.querySelector(
+      ".product__price-value"
+    ).textContent;
+    var productImgSrc = product
+      .querySelector(".product__img")
+      .getAttribute("src");
 
-    order.querySelector(".order-info-title").setAttribute('value', productTitle);
-    order.querySelector(".order-info-size").setAttribute('value', productSize);
-    order.querySelector(".order-info-price").setAttribute('value', productPrice);
+    order
+      .querySelector(".order-info-title")
+      .setAttribute("value", productTitle);
+    order.querySelector(".order-info-size").setAttribute("value", productSize);
+    order
+      .querySelector(".order-info-price")
+      .setAttribute("value", productPrice);
 
     order.querySelector(".order-product-title").textContent = productTitle;
     order.querySelector(".order-product-price").textContent = productPrice;
     order.querySelector(".order__size").textContent = productSize;
-    order.querySelector(".order__img").setAttribute('src', productImgSrc);
+    order.querySelector(".order__img").setAttribute("src", productImgSrc);
 
-    console.log(changeProductOrderInfo)
+    console.log(changeProductOrderInfo);
   };
 
-  catalog.addEventListener('click', function(e) {
+  catalog.addEventListener("click", function (e) {
     var target = e.target;
 
-    if (target.classList.contains("product__size") && !target.classList.contains("is-active")) {
+    if (
+      target.classList.contains("product__size") &&
+      !target.classList.contains("is-active")
+    ) {
       e.preventDefault();
       changeProductSize(target);
     }
@@ -267,32 +284,32 @@ myLib.body.addEventListener('click', function(e) {
 // product
 
 // productChecker
-;(function() {
-  var catalog = document.querySelector('.catalog');
+(function () {
+  var catalog = document.querySelector(".catalog");
 
   if (catalog === null) {
     return;
   }
 
-  var changeProductSize = function(target) {
-    var product = myLib.closestItemByClass(target, 'product').textContent;
-    var previousBtnActive = product.querySelector('.product__size.is-active');
-    var checker = product.querySelector('.product__checker');
+  var changeProductSize = function (target) {
+    var product = myLib.closestItemByClass(target, "product").textContent;
+    var previousBtnActive = product.querySelector(".product__size.is-active");
+    var checker = product.querySelector(".product__checker");
 
-    previousBtnActive.classList.remove('is-active');
-    target.classList.add('is-active');
-    
+    previousBtnActive.classList.remove("is-active");
+    target.classList.add("is-active");
+
     changeCheckerPosition(target, checker);
   };
 
-  var changeCheckerPosition = function(target, checker) {
-    checker.style.transform = 'translate(' + target.offsetLeft + 'px' + ', 0)';
+  var changeCheckerPosition = function (target, checker) {
+    checker.style.transform = "translate(" + target.offsetLeft + "px" + ", 0)";
   };
 
-  catalog.addEventListener('click', function(e) {
+  catalog.addEventListener("click", function (e) {
     var target = e.target;
 
-    if (target.classList.contains('product__size')) {
+    if (target.classList.contains("product__size")) {
       e.preventDefault();
       changeProductSize(target);
     }
@@ -300,47 +317,47 @@ myLib.body.addEventListener('click', function(e) {
 
   var timers = {};
 
-  catalog.addEventListener('mousemove', function(e) {
+  catalog.addEventListener("mousemove", function (e) {
     var target = e.target;
-    var parent = myLib.closestItemByClass(target, 'product__sizes');
+    var parent = myLib.closestItemByClass(target, "product__sizes");
 
     if (parent === null) {
       return;
     }
 
-    var product = myLib.closestItemByClass(target, 'product');
-    var productTitle = product.querySelector('.product__title').textContent;
+    var product = myLib.closestItemByClass(target, "product");
+    var productTitle = product.querySelector(".product__title").textContent;
 
     if (timers[productTitle]) {
       clearTimeout(timers[productTitle]);
     }
 
-    currentItem = parent; 
-    var checker = parent.querySelector('.product__checker');
+    currentItem = parent;
+    var checker = parent.querySelector(".product__checker");
 
-    if (target.classList.contains('product__size')) {
+    if (target.classList.contains("product__size")) {
       changeCheckerPosition(target, checker);
     }
   });
-  
-  catalog.addEventListener('mouseout', function(e) {
+
+  catalog.addEventListener("mouseout", function (e) {
     var target = e.target;
-    var parent = myLib.closestItemByClass(target, 'product__sizes');
+    var parent = myLib.closestItemByClass(target, "product__sizes");
     if (parent === null) {
       return;
     }
 
     var parent = target.parentNode;
-    var activeBtn = parent.querySelector('.product__size.is-active');
-    var checker = parent.querySelector('.product__checker');
-    var product = myLib.closestItemByClass(target, 'product');
-    var productTitle = product.querySelector('.product__title').textContent;
+    var activeBtn = parent.querySelector(".product__size.is-active");
+    var checker = parent.querySelector(".product__checker");
+    var product = myLib.closestItemByClass(target, "product");
+    var productTitle = product.querySelector(".product__title").textContent;
 
     if (timers[productTitle]) {
       clearTimeout(timers[productTitle]);
     }
-    
-    timers[productTitle] = setTimeout(function() {
+
+    timers[productTitle] = setTimeout(function () {
       changeCheckerPosition(activeBtn, checker);
     }, 150);
   });
@@ -348,103 +365,110 @@ myLib.body.addEventListener('click', function(e) {
 // productChecker
 
 // map
-;(function() {
+(function () {
   var sectionContacts = document.querySelector(".section-contacts");
 
-  var ymapInit = function() {
-    if (typeof ymaps === 'undefined') {
+  var ymapInit = function () {
+    if (typeof ymaps === "undefined") {
       return;
     }
-  
+
     ymaps.ready(function () {
-      var myMap = new ymaps.Map('ymap', {
-              center: [55.794887, 37.712812],
-              zoom: 16
-          }, {
-              searchControlProvider: 'yandex#search'
-          }),
-  
-          myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-              balloonContent: 'г. Москва, Преображенская площадь, 8'
-          }, {
-              iconLayout: 'default#image',
-              iconImageHref: 'img/common/marker.svg',
-              iconImageSize: [40, 63.2],
-              iconImageOffset: [-5, -38]
-          });
-  
+      var myMap = new ymaps.Map(
+          "ymap",
+          {
+            center: [50.415556, 30.52257],
+            zoom: 16,
+          },
+          {
+            searchControlProvider: "yandex#search",
+          }
+        ),
+        myPlacemark = new ymaps.Placemark(
+          myMap.getCenter(),
+          {
+            balloonContent: "г. Киев, Антоновича, 165",
+          },
+          {
+            iconLayout: "default#image",
+            iconImageHref: "img/common/marker.svg",
+            iconImageSize: [40, 63.2],
+            iconImageOffset: [-5, -38],
+          }
+        );
+
       myMap.geoObjects.add(myPlacemark);
     });
   };
 
-  var ymapLoad = function() {
-    var script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+  var ymapLoad = function () {
+    var script = document.createElement("script");
+    script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
     myLib.body.appendChild(script);
     script.onload = ymapInit;
   };
 
-  var checkYmapInit = function() {
+  var checkYmapInit = function () {
     var sectionContactsTop = sectionContacts.getBoundingClientRect().top;
     var scrollTop = window.pageYOffset;
     var sectionContactsOffsetTop = scrollTop + sectionContactsTop;
 
     if (scrollTop + window.innerHeight > sectionContactsOffsetTop) {
       ymapLoad();
-      window.removeEventListener('scroll', checkYmapInit);
+      window.removeEventListener("scroll", checkYmapInit);
     }
   };
 
-  window.addEventListener('scroll', checkYmapInit);
+  window.addEventListener("scroll", checkYmapInit);
   checkYmapInit();
 })();
 // map
 
 // form
-;(function() {
-  var forms = document.querySelectorAll('.form-send');
+(function () {
+  var forms = document.querySelectorAll(".form-send");
 
   if (forms.length === 0) {
     return;
   }
 
-  var serialize = function(form) {
-    var items = form.querySelectorAll('input, select, textarea');
-    var str = '';
+  var serialize = function (form) {
+    var items = form.querySelectorAll("input, select, textarea");
+    var str = "";
     for (var i = 0; i < items.length; i += 1) {
       var item = items[i];
       var name = item.name;
       var value = item.value;
-      var separator = i === 0 ? '' : '&';
+      var separator = i === 0 ? "" : "&";
 
       if (value) {
-        str += separator + name + '=' + value;
+        str += separator + name + "=" + value;
       }
     }
     return str;
   };
 
-  var formSend = function(form) {
+  var formSend = function (form) {
     var data = serialize(form);
     var xhr = new XMLHttpRequest();
-    var url = 'mail/mail.php';
-    
-    xhr.open('POST', url);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var url = "mail/mail.php";
 
-    xhr.onload = function() {
-      var activePopup = document.querySelector('.popup.is-active');
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onload = function () {
+      var activePopup = document.querySelector(".popup.is-active");
 
       if (activePopup) {
-        activePopup.classList.remove('is-active');
+        activePopup.classList.remove("is-active");
       } else {
         myLib.toggleScroll();
       }
 
-      if (xhr.response === 'success') {
-        document.querySelector('.popup-thanks').classList.add('is-active');
+      if (xhr.response === "success") {
+        document.querySelector(".popup-thanks").classList.add("is-active");
       } else {
-        document.querySelector('.popup-error').classList.add('is-active');
+        document.querySelector(".popup-error").classList.add("is-active");
       }
 
       form.reset();
@@ -454,7 +478,7 @@ myLib.body.addEventListener('click', function(e) {
   };
 
   for (var i = 0; i < forms.length; i += 1) {
-    forms[i].addEventListener('submit', function(e) {
+    forms[i].addEventListener("submit", function (e) {
       e.preventDefault();
       var form = e.currentTarget;
       formSend(form);
