@@ -1,0 +1,11 @@
+{
+  "name": "pizza",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/YanaWhitte/pizza-time.git",
+  "author": "YanaWhitte <shiro.kirio@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "e2e": "cypress open"
+  }
+}
