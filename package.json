@@ -7,5 +7,11 @@
   "license": "MIT",
   "scripts": {
     "e2e": "cypress open"
+  },
+  "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
